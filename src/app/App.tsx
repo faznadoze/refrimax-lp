@@ -273,6 +273,7 @@ function Whatsapp({
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [atTop, setAtTop] = useState(true)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const [isDesktop, setIsDesktop] = useState(false)
   const [playMobileVideo, setPlayMobileVideo] = useState(false)
@@ -437,7 +438,10 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20)
+      setAtTop(window.scrollY < 110)
+    }
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
@@ -477,7 +481,27 @@ export default function App() {
         <div className={`pointer-events-auto mx-auto flex h-14 max-w-[1280px] items-center justify-between gap-4 rounded-full border border-white/10 bg-[var(--navy-900)]/95 py-2 pl-2.5 pr-2 transition-shadow sm:h-[68px] sm:pl-4 sm:pr-3 ${
             scrolled ? "shadow-[var(--shadow-sticky)]" : ""
           }`}>
-          <Logo light prominent />
+          {/* Phones: the hero already shows the big logo, so the pill shows the phone until you scroll */}
+          <div className="relative flex items-center">
+            <div
+              className={`transition-[opacity,visibility] duration-200 ${
+                atTop ? "max-sm:invisible max-sm:opacity-0" : ""
+              }`}
+            >
+              <Logo light prominent />
+            </div>
+            <a
+              href={phoneHref}
+              aria-hidden={!atTop}
+              tabIndex={atTop ? 0 : -1}
+              className={`absolute left-3 flex items-center gap-2 whitespace-nowrap text-sm font-bold text-white transition-[opacity,visibility] duration-200 sm:hidden ${
+                atTop ? "" : "invisible opacity-0"
+              }`}
+            >
+              <Phone className="size-4 text-[var(--blue-400)]" />
+              (48) 99921-6831
+            </a>
+          </div>
           <nav
             className="hidden items-center gap-7 lg:flex"
             aria-label="Navegação principal"
