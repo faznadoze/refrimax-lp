@@ -3,7 +3,9 @@ import { gsap } from "gsap"
 // Drives the static #splash overlay declared in index.html.
 // Plays the Lottie logo, then fades out once the page is ready (or after a cap).
 const ENTRY_MS = 1700 // entry part of the animation (first 1.6 s)
+const TAG_HOLD_MS = 2300 // on phones the tagline needs reading time
 const MAX_MS = 4500 // never keep the visitor waiting longer than this
+const MAX_MS_WITH_TAG = 6500 // phones: leaves room for a slow Lottie download + the tagline
 const LOOP_SEGMENT: [number, number] = [96, 144] // 1.6–2.4 s loop
 
 let started = false
@@ -19,6 +21,8 @@ export function startSplash(onDone: () => void): () => void {
   }
 
   started = true
+  const tag = document.getElementById("splash-tag")
+  const showTag = !!tag && getComputedStyle(tag).display !== "none"
   let finished = false
   let anim: { destroy: () => void } | null = null
   const timers: number[] = []
@@ -45,7 +49,7 @@ export function startSplash(onDone: () => void): () => void {
   }
   const tryFinish = () => entryDone && pageReady && finish()
 
-  timers.push(window.setTimeout(finish, MAX_MS))
+  timers.push(window.setTimeout(finish, showTag ? MAX_MS_WITH_TAG : MAX_MS))
   if (!pageReady) {
     window.addEventListener(
       "load",
@@ -70,11 +74,18 @@ export function startSplash(onDone: () => void): () => void {
       })
       anim = a
       a.addEventListener("DOMLoaded", () => {
+        if (showTag) {
+          gsap.fromTo(
+            tag,
+            { autoAlpha: 0, y: 12 },
+            { autoAlpha: 1, y: 0, duration: 0.5, delay: 0.9, ease: "power2.out" },
+          )
+        }
         timers.push(
           window.setTimeout(() => {
             entryDone = true
             tryFinish()
-          }, ENTRY_MS),
+          }, showTag ? TAG_HOLD_MS : ENTRY_MS),
         )
       })
       a.addEventListener("complete", () => {

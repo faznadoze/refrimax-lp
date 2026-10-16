@@ -15,6 +15,10 @@
     <style>
       #splash{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:#f8fafc}
       #splash-anim{width:min(88vw,420px);aspect-ratio:1}
+      #splash{flex-direction:column}
+      #splash-tag{margin:-28vw 24px 0;max-width:340px;text-align:center;font:700 26px/1.05 "Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.01em;color:#032c5d;opacity:0}
+      #splash-tag b{color:#e6202c;font-weight:700}
+      @media (min-width:768px){#splash-tag{display:none}}
       body.splashing{overflow:hidden}
     </style>
     <!-- figma:head-end -->
@@ -25,7 +29,7 @@
       try {
         if (!sessionStorage.getItem("rmx-splash") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
           document.body.classList.add("splashing");
-          document.body.insertAdjacentHTML("afterbegin", '<div id="splash" role="status" aria-label="Carregando"><div id="splash-anim"></div></div>');
+          document.body.insertAdjacentHTML("afterbegin", '<div id="splash" role="status" aria-label="Carregando"><div id="splash-anim"></div><p id="splash-tag">Atendimento ágil e <b>entrega a domicílio</b></p></div>');
         }
       } catch (e) {}
     </script>

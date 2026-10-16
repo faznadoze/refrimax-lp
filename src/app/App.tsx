@@ -355,8 +355,10 @@ export default function App() {
       const tl = gsap.timeline({ paused: true, defaults: { ease: "ui" } })
       intro.current = tl
       tl
-        .from("[data-hero='pill']", { y: -10, autoAlpha: 0, duration: 0.4 })
+        .from("[data-hero='logo']", { y: -10, scale: 0.96, autoAlpha: 0, duration: 0.5 })
+        .from("[data-hero='pill']", { y: -10, autoAlpha: 0, duration: 0.4 }, "<")
         .from("[data-hero='title']", { y: 20, autoAlpha: 0, duration: 0.6 }, "-=0.2")
+        .from("[data-hero='tagline']", { y: 14, autoAlpha: 0, duration: 0.45 }, "-=0.3")
         .from("[data-hero='text']", { y: 14, autoAlpha: 0, duration: 0.5 }, "-=0.4")
         .from("[data-hero='cta'] > *", { y: 14, autoAlpha: 0, stagger: 0.07, duration: 0.45 }, "-=0.3")
         .from("[data-hero='trust'] > *", { y: 10, autoAlpha: 0, stagger: 0.05, duration: 0.4 }, "-=0.3")
@@ -568,7 +570,16 @@ export default function App() {
 
           <div className="mx-auto max-w-[1280px]">
             <div className="relative z-10 px-5 pb-0 pt-[92px] sm:px-10 sm:pt-[124px] lg:w-[54%] lg:pb-20 lg:pt-[150px]">
-              <div data-hero="pill" className="mb-5 inline-flex flex-wrap items-center gap-2.5 rounded-full border border-[var(--navy-700)]/20 bg-[var(--navy-900)] px-4 py-2 text-xs font-extrabold tracking-[1.2px] text-white shadow-sm">
+              <img
+                data-hero="logo"
+                src={u("/assets/ab860.svg")}
+                alt="Refrimax Refrigeração"
+                width="693"
+                height="183"
+                fetchPriority="high"
+                className="mb-4 h-auto w-[236px] sm:hidden"
+              />
+              <div data-hero="pill" className="mb-5 hidden flex-wrap items-center gap-2.5 sm:inline-flex rounded-full border border-[var(--navy-700)]/20 bg-[var(--navy-900)] px-4 py-2 text-xs font-extrabold tracking-[1.2px] text-white shadow-sm">
                 <span className="size-2 rounded-full bg-[var(--blue-400)]" />
                 MAIS DE 35 ANOS · CRICIÚMA E REGIÃO
               </div>
@@ -580,7 +591,20 @@ export default function App() {
                 </span>
               </h1>
 
-              <p data-hero="text" className="mt-4 max-w-[510px] text-base font-medium leading-[1.7] text-[#243b55] sm:text-lg">
+              {/* Mobile-only highlight of the service promise */}
+              <div
+                data-hero="tagline"
+                className="mt-4 flex items-center gap-3 rounded-2xl bg-[var(--blue-600)] px-4 py-3 text-white shadow-[0_10px_24px_-8px_rgba(8,121,237,0.55)] sm:hidden"
+              >
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/20">
+                  <Truck className="size-5" aria-hidden="true" />
+                </span>
+                <p className="font-display text-[21px] font-bold uppercase leading-[1.02] tracking-[0.01em]">
+                  Atendimento ágil e entrega a domicílio
+                </p>
+              </div>
+
+              <p data-hero="text" className="mt-4 hidden max-w-[510px] sm:block text-base font-medium leading-[1.7] text-[#243b55] sm:text-lg">
                 Consertos, reparos e manutenção preventiva e corretiva de{" "}
                 <strong className="font-bold text-[var(--navy-950)]">
                   geladeiras, freezers, máquinas de lavar, micro-ondas, fornos e
