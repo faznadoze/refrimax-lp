@@ -470,7 +470,7 @@ export default function App() {
 
       {/* Sticky Main Header */}
       <header
-        className="pointer-events-none sticky top-0 z-50 px-3 pt-3 text-white sm:px-6 sm:pt-4"
+        className="pointer-events-none sticky top-0 z-50 -mb-[68px] px-3 pt-3 text-white sm:-mb-[84px] sm:px-6 sm:pt-4"
       >
         <div className={`pointer-events-auto mx-auto flex h-14 max-w-[1280px] items-center justify-between gap-4 rounded-full border border-white/10 bg-[var(--navy-900)]/95 py-2 pl-2.5 pr-2 transition-shadow sm:h-[68px] sm:pl-4 sm:pr-3 ${
             scrolled ? "shadow-[var(--shadow-sticky)]" : ""
@@ -567,7 +567,7 @@ export default function App() {
           </div>
 
           <div className="mx-auto max-w-[1280px]">
-            <div className="relative z-10 px-5 pb-0 pt-7 sm:px-10 sm:pt-10 lg:w-[54%] lg:pb-20 lg:pt-16">
+            <div className="relative z-10 px-5 pb-0 pt-[92px] sm:px-10 sm:pt-[124px] lg:w-[54%] lg:pb-20 lg:pt-[150px]">
               <div data-hero="pill" className="mb-5 inline-flex flex-wrap items-center gap-2.5 rounded-full border border-[var(--navy-700)]/20 bg-[var(--navy-900)] px-4 py-2 text-xs font-extrabold tracking-[1.2px] text-white shadow-sm">
                 <span className="size-2 rounded-full bg-[var(--blue-400)]" />
                 MAIS DE 35 ANOS · CRICIÚMA E REGIÃO
