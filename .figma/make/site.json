@@ -1,0 +1,10 @@
+{
+  "description": "This landing page connects customers in Criciúma with Refrimax Refrigeração for reliable refrigeration equipment maintenance, facilitating quick service requests via WhatsApp.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

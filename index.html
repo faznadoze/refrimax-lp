@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <!-- figma:head-start -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refrimax Refrigeração | Manutenção em Criciúma</title>
+    <meta name="description" content="Manutenção preventiva e corretiva de equipamentos de refrigeração em Criciúma e região. Fale com a Refrimax pelo WhatsApp e solicite um orçamento." />
+    <meta name="theme-color" content="#0b213b" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/assets/mobile-bg.webp" media="(max-width: 1023px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/hero-poster.webp" media="(min-width: 1024px)" fetchpriority="high" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" />
+    <style>
+      #splash{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:#f8fafc}
+      #splash-anim{width:min(88vw,420px);aspect-ratio:1}
+      body.splashing{overflow:hidden}
+    </style>
+    <!-- figma:head-end -->
+  </head>
+  <body>
+    <!-- figma:body-start -->
+    <script>
+      try {
+        if (!sessionStorage.getItem("rmx-splash") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.body.classList.add("splashing");
+          document.body.insertAdjacentHTML("afterbegin", '<div id="splash" role="status" aria-label="Carregando"><div id="splash-anim"></div></div>');
+        }
+      } catch (e) {}
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- figma:body-end -->
+  </body>
+</html>

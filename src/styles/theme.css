@@ -1,0 +1,92 @@
+:root {
+  /* Brand & Trust Blues */
+  --navy-950: #071526;
+  --navy-900: #0b213b;
+  --navy-800: #102d50;
+  --navy-700: #1a3f6b;
+  --brand-navy: #032c5d;
+  --blue-600: #0879ed;
+  --blue-action: #0066cc;
+  --blue-action-hover: #0052a3;
+  --blue-500: #2b88f5;
+  --blue-400: #5b9bff;
+  --blue-200: #cfe2ff;
+  --blue-100: #e6f0ff;
+
+  /* Light Mobile-First Surfaces */
+  --white: #ffffff;
+  --surface-page: #f8fafc;
+  --surface-subtle: #f1f5f9;
+  --surface-ice: #eef5ff;
+  --surface-card: #ffffff;
+  --ice-50: #f4f8ff;
+
+  /* Typography & Ink */
+  --ink-strong: #0f2942;
+  --ink-body: #334155;
+  --ink-muted: #52637a;
+
+  /* Accents & Conversion Actions */
+  --brand-red: #e6202c;
+  --whatsapp-action: #0b7a39;
+  --whatsapp-action-hover: #096530;
+
+  /* Semantic Mappings */
+  --hero-surface: #e8eef3;
+  --hero-ink: #0b213b;
+  --hero-muted: #3b4e68;
+  --background: var(--surface-page);
+  --foreground: var(--ink-strong);
+  --border: #dde6f0;
+  --border-subtle: rgba(15, 41, 66, 0.08);
+  --primary: var(--blue-600);
+  --primary-foreground: var(--white);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #071526 0%, #102d50 55%, #0879ed 100%);
+  --gradient-dark: linear-gradient(180deg, #0b213b 0%, #071526 100%);
+  --gradient-section: linear-gradient(180deg, #f8fafc 0%, #eef4fa 100%);
+  --gradient-trust: linear-gradient(135deg, #032c5d 0%, #0f2942 60%, #163a5f 100%);
+  --gradient-card: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+  /* Radii & Spacing */
+  --radius-control: 0.75rem;
+  --radius-card: 1rem;
+  --space-unit: 0.25rem;
+  --text-label: 0.75rem;
+  --text-body: 0.875rem;
+  --text-heading: 2.25rem;
+
+  /* Soft Elevations */
+  --shadow-xs: 0 1px 2px rgba(15, 41, 66, 0.04);
+  --shadow-card: 0 8px 24px -4px rgba(15, 41, 66, 0.07), 0 2px 6px -1px rgba(15, 41, 66, 0.04);
+  --shadow-card-hover: 0 18px 36px -6px rgba(8, 121, 237, 0.14), 0 4px 12px -2px rgba(15, 41, 66, 0.06);
+  --shadow-cta: 0 10px 24px -4px rgba(16, 152, 72, 0.4), 0 4px 10px -2px rgba(16, 152, 72, 0.22);
+  --shadow-sticky: 0 8px 28px -4px rgba(7, 21, 38, 0.12);
+}
+
+@theme inline {
+  --spacing: var(--space-unit);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+  --color-blue-600: var(--blue-600);
+  --color-blue-500: var(--blue-500);
+  --color-blue-400: var(--blue-400);
+  --color-blue-200: var(--blue-200);
+  --color-blue-100: var(--blue-100);
+  --color-ice-50: var(--ice-50);
+  --color-white: var(--white);
+  --color-brand-red: var(--brand-red);
+  --radius-md: var(--radius-control);
+  --radius-lg: var(--radius-card);
+  --radius-xl: var(--radius-card);
+  --text-xs: var(--text-label);
+  --text-sm: var(--text-body);
+}
